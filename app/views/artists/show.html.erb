@@ -1,1 +1,8 @@
 <h2><%= @artist.name %></h2>
+
+<% if !@songs.empty? %>
+  <% @songs.each do |song| %>
+    <%= song.title %>
+    <%= song.length %>
+  <% end %>
+<% end %>

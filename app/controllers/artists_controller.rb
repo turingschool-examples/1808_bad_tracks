@@ -5,11 +5,12 @@ class ArtistsController < ApplicationController
 
   def create
     new_artist = Artist.create(artist_params)
-    redirect_to "/artists/#{new_artist.id}"
+    redirect_to artist_path(new_artist)
   end
 
   def show
     @artist = Artist.find(params[:id])
+    @songs = @artist.songs
   end
 
   private
