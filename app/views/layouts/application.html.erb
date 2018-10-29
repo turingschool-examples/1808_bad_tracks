@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <nav>
+      Cart: <%= @cart.total_count %>
+    </nav>
+
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: type %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

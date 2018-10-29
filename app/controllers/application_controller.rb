@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :build_cart
 
   # this lets the view access the helper method
   helper_method :current_user
@@ -10,5 +11,9 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def build_cart
+    @cart ||= Cart.new(session[:cart])
   end
 end
